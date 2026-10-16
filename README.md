@@ -1,5 +1,44 @@
 # Lalaland 玩家版
 
+## 最新 Windows：Unreal 测试版 · 2026-10-16
+
+[下载新版 Windows 游戏](https://github.com/192tt/Lalaland/releases/tag/windows-ue5-20261016)
+
+下载发布页的 **Lalaland-Windows-UE5-20261016.zip**，完整解压到可写目录（建议 D 盘），按以下顺序启动：
+
+1. 双击 **配置API.cmd**，在记事本打开的 `Config/model.env` 中填写自己的配置。
+2. `LALALAND_DEEPSEEK_API_KEY=` 后填写自己的 DeepSeek Key；默认模型为 `deepseek-flash`，可改成账号支持的 DeepSeek 模型。
+3. `TYPESAFE_API_KEY=` 后填写自己的 TypeSafe / Jev Key，以启用模型自主行动调度；留空时该调度不可用。
+4. 保存并关闭记事本，双击 **Lalaland.exe**。不要从 ZIP 内部启动，不要只复制 exe。
+
+无需 Unity、Unreal Editor 或单独安装 Node.js。**公开包不含任何项目方 API 密钥，不提供免费托管模型**。当前 Unreal 版使用外部配置文件，没有旧 Unity 版的游戏内 API 表单，也不会自动切换离线回复。模型调用消耗玩家自己的服务商额度。填入密钥后不要再公开分享配置文件。
+
+DeepSeek 用于角色、主控和 A2A；Jev 用于行动意图，实际移动、到达、关系由游戏验证。需要联网和可用账号额度。存档、日志、缓存及临时数据写在解压目录 `UserData`，请自行备份。
+
+### 新版内容与测试范围
+
+- 当前实现的入场、酒吧社交/文字对话、调酒、弹球、露台流星与首夜总结；包含本轮二楼承重/灯光、开局节奏、调酒确认和赠饮规则修复。
+- 338 项后端测试通过。独立包内服务检查 6 项通过；公开空配置能明确报错，不伪装成在线就绪。本次封包未发送付费模型请求。
+- 同一 Shipping 构建此前二楼 cooked 支撑检测 27/27、2 块地板/3 盏灯；自动场景 105 项通过。编辑器 37 通过、1 项旧音效资源检查失败，Night 25 通过。不是本次重新完整人工验收。
+- 基础公共音乐已有验证；全部英韩文本、角色专属好感 BGM、配音/口型和道具接触精修未全部完成。正常速度完整首夜真人体验、投球手感和跨电脑兼容仍待反馈。
+- 本次仅发布 Windows Unreal 测试版，**没有同步更新 macOS**，也不表示旧计划全部 Scene 0–6 已完整迁移。
+
+按 E 与目标交谈、Enter 发送文字、Esc 返回；WASD 移动，F8 问主控。更多操作和限制见包内 `README.md`、`TEST_RESULTS.md`。
+
+发布页附 `.zip.sha256`，包内附逐文件 `SHA256SUMS.txt`。PowerShell 校验：
+
+```powershell
+Get-FileHash .\Lalaland-Windows-UE5-20261016.zip -Algorithm SHA256
+```
+
+本版保留现有场景与角色，不包含开发者密钥、API Excel 库、个人存档、日志、调试符号或编辑器。请勿将填好密钥的本地配置提交 GitHub。
+
+---
+
+## 历史发行说明 · 2026-08-31（旧 Unity 版，不适用于新版 Unreal）
+
+以下启动文件、API 表单、Scene 0–6、测试数字与 macOS 描述均只属于旧版；旧资产和下载保留，不作为新版完成证据。
+
 这是 **Lalaland** 的玩家发行仓库，提供 Windows 和 macOS 运行包。两个版本都包含整晚 Scene 0–6 流程、BGM，以及由玩家自行填写的模型 API 配置。
 
 ## 下载与启动

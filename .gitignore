@@ -1,1 +1,6 @@
 *.zip
+*.env
+UserData/
+Saved/
+Logs/
+Private/
